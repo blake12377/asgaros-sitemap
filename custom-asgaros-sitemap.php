@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Asgaros Forum Topic Sitemap
 Description: Custom sitemap plugin for Asgaros Forum topics.
-Version: 1.0.1
+Version: 1.0.2
 Author: Blake Whitford
 */
 
@@ -100,3 +100,20 @@ function custom_asgaros_sitemap_page() {
     </div>
     <?php
 }
+
+// Function to generate the sitemap URLs as an HTML list
+function custom_asgaros_sitemap_shortcode() {
+    $forum_topics = get_asgaros_forum_topics();
+    
+    $output = '<ul>';
+    foreach ($forum_topics as $slug) {
+        $url = rtrim(get_site_url(), '/') . '/forum/topic/' . $slug;
+        $output .= '<li><a href="' . esc_url($url) . '">' . esc_html($url) . '</a></li>';
+    }
+    $output .= '</ul>';
+    
+    return $output;
+}
+
+// Register the shortcode
+add_shortcode('custom_asgaros_sitemap', 'custom_asgaros_sitemap_shortcode');
