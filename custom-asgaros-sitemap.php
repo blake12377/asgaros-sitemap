@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Asgaros Forum Topic Sitemap
 Description: Custom sitemap plugin for Asgaros Forum topics.
-Version: 1.0
+Version: 1.0.1
 Author: Blake Whitford
 */
 
@@ -36,7 +36,7 @@ function create_asgaros_sitemap() {
     echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
     foreach ($forum_topics as $slug) {
-        $url = rtrim(get_site_url(), '/') . '/forum/forum/' . $slug;
+        $url = rtrim(get_site_url(), '/') . '/forum/topic/' . $slug;
 
         echo '<url>';
         echo '<loc>' . esc_url($url) . '</loc>';
@@ -92,7 +92,7 @@ function custom_asgaros_sitemap_page() {
             <?php
             $site_url = get_site_url();
             foreach ($forum_topics as $slug) {
-                $url = rtrim($site_url, '/') . '/forum/forum/' . $slug;
+                $url = rtrim($site_url, '/') . '/forum/topic/' . $slug;
                 echo '<li><a href="' . esc_url($url) . '" target="_blank">' . esc_html($url) . '</a></li>';
             }
             ?>
