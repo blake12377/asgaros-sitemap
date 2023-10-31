@@ -3,7 +3,7 @@
 Plugin Name: Custom Asgaros Forum Topic Sitemap
 Description: Custom sitemap plugin for Asgaros Forum topics.
 Version: 1.0
-Author: Your Name
+Author: Blake Whitford
 */
 
 // Function to get approved Asgaros Forum topics
